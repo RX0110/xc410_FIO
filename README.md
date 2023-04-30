@@ -1,6 +1,8 @@
 # Boston Police Department Field Interrogation and Observation Dataset
 
-This repository contains data from BPD's FIO [dataset](https://data.boston.gov/dataset/boston-police-department-fio), merged across years and cleaned in two analysis-ready CSV files. The merged files include data from the second half of 2015 through the end of 2019.
+This repository contains data from BPD's FIO [dataset](https://data.boston.gov/dataset/boston-police-department-fio), merged across years and cleaned in two analysis-ready CSV files. The merged files include data from the second half of 2015 through the end of 2022. 
+
+The cleaning process from https://github.com/jacoblurye/bpd-fio-data.
 
 Each row in the `fio_contacts.csv` file pertains to a single police field interrogation or observation event. Each row in the `fio_people.csv` file pertains to a person involved in one of those FIOs. Each stop in `fio_contacts.csv` has a unique identifier, `fc_num`, that links to the people in `fio_people.csv` who were contacted. Also included is `nested_fio_data.json`, a JSON object keyed on `fc_num` with each value representing a single FIO contact and the people it involved.
 
@@ -46,3 +48,9 @@ _Disclaimer_: I've done my best to preserve or clarify the original meaning of a
 - Add a `year` column derived from the `contact_date` column.
 - The values `''`, `'NULL'`, and `'None'` are used to signify no value was entered in various fields across the dataset.
     Replace these values with `np.nan`.
+
+## Race&ethnicity pie chart create
+- Drop unknown and other types in race and ethnicity data
+- Combine race and ethnicity column  
+- Assign number for each different type and replace in data
+- Create pie chart using Matplotlib package 
